@@ -2,9 +2,12 @@ import React from "react";
 import Button from "./Button";
 import Checkbox from "./Checkbox";
 
-const TodoRow = ({todo ,index , onDelete , onToggleComplete}) => {
+const TodoRow = ({todo ,index , onDelete , onToggleComplete ,onMouseEnter , onMouseLeave , isHovered}) => {
     return (
-        <div className="row">
+        <div className="row"
+             onMouseEnter={onMouseEnter}
+             onMouseLeave={onMouseLeave}
+        >
            <Checkbox 
             Checked={todo.complete}
             onChange={()=> onToggleComplete(index)}
@@ -12,7 +15,7 @@ const TodoRow = ({todo ,index , onDelete , onToggleComplete}) => {
             index={index}
            />
            <span>{todo.text}</span>
-           <Button onDelete={()=>onDelete(index)} index={index}/>
+           {isHovered ? (<Button onDelete={()=>onDelete(index)} index={index}/>) : <p></p>}
         </div>
     )
 }

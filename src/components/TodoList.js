@@ -4,6 +4,15 @@ import TodoRow from "./TodoRow";
 const TodoList = () => {
     const[todos , setTodo] = useState([]);
     const[inputValue , setInputValue] = useState("");
+    const[hoverIndex , setHoverIndex] = useState(null);
+
+    const MouseEnter = (i) => {
+        setHoverIndex(i)
+        console.log(hoverIndex);
+    }
+    const MouseLeave = () => {
+       setHoverIndex(null);
+    }
 
     const handleInputChange = (e) => {
          setInputValue(e.target.value)
@@ -43,6 +52,9 @@ const TodoList = () => {
                             index={i}
                             onDelete={()=>handleDeleteTodo(i)}
                             onToggleComplete={()=>handleToggleComplete(i)}
+                            onMouseEnter={()=>MouseEnter(i)}
+                            onMouseLeave={MouseLeave}
+                            isHovered={hoverIndex === i}
                           />
                 })
             }

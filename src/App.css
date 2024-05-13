@@ -19,6 +19,15 @@
   color: white;
 }
 
+p{
+  margin-left: 3rem;
+  background-color: #4eb570;
+  border-radius: 30%;
+  border: 1px solid white;
+  color: white;
+}
+
+
 #Add-todo {
   background-color: #4eb570;
   color: white;
@@ -39,11 +48,15 @@
 .row{
   display: flex;
   justify-content: space-between;
-  margin: 1rem;
+  padding: 1rem;
+}
+
+.row:hover{
+  background-color: #f0f1f1;
+  transition: all 0.3s;
 }
 
 ul{
   border: 1px solid gray;
-  margin: 1rem;
   padding: 0.5rem 2rem;
 }
